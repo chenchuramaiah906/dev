@@ -1,24 +1,26 @@
 pipeline {
-  agent any
+    agent any
 
-  stages {
-    stage('Build Docker Images') {
-      steps {
-        sh 'docker build -t order-service ./order-service'
-        sh 'docker build -t payment-service ./payment-service'
-      }
-    }
+    stages {
+        stage('Build Docker Images') {
+            steps {
+                bat 'docker build -t order-service ./order-service'
+                bat 'docker build -t payment-service ./payment-service'
+            }
+        }
 
-    stage('Test (Dummy Test)') {
-      steps {
-        echo "✅ Tests passed (simulated)"
-      }
-    }
+        stage('Test (Dummy Test)') {
+            steps {
+                echo "✅ Tests passed (simulated)"
+            }
+        }
 
-    stage('Deploy to K8s') {
-      steps {
-        echo "🚀 Deployment to Kubernetes will happen in Step 5"
-      }
+        stage('Deploy to K8s') {
+            steps {
+                echo "🚀 Deployment to Kubernetes will happen in Step 5"
+            }
+        }
     }
-  }
 }
+
+
